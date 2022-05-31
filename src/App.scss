@@ -1,0 +1,36 @@
+.container {
+  margin-top: 20px;
+}
+.center{
+  width: 50%;
+  text-align: center;
+}
+
+.responsive {
+  &-img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.flexbox {
+  display: flex;
+
+  &-inline {
+    display: inline-flex;
+  }
+
+  &-col {
+    flex-direction: column;
+  }
+}
+.spacing{
+  &-top10{
+    margin-top: 10px;
+  }
+  &-top50{
+    margin-top: 50px;
+  }
+}
+
+
