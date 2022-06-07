@@ -1,0 +1,4 @@
+const NotFoundPage =() =>{
+
+}
+export {NotFoundPage}
