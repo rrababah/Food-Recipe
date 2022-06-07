@@ -1,18 +1,18 @@
 import {SearchResults} from "../components/SearchResults/SearchResults";
 import {useDispatch, useSelector} from 'react-redux';
 import {SearchBar} from "../components/SearchBar/SearchBar";
-import {loadingActions} from "../store/loading-state/isLoading";
+import {loadingActions} from "../store/Spinner/Spinner";
 import {loadedRecipesActions} from "../store/recipe-state/loadedRecipes";
 import {enteredRecipeActions} from "../store/recipe-state/enteredRecipe";
 import {useNavigate} from "react-router-dom";
-import {GetSearchResults} from "../services/GetSearchResults";
+import {GetSearchResults} from "../services/searchApiService";
 
 
 const Home = () => {
 
     const history = useNavigate(),
         dispatch = useDispatch(),
-        isLoading = useSelector(state => state.isLoading.isLoading),
+        isLoading = useSelector(state => state.spinner.isLoading),
         enteredRecipe = useSelector(state => state.enteredRecipeSlice.enteredRecipe);
 
     const onChangeHandler = (e) => {

@@ -2,9 +2,9 @@ import './Header.scss'
 
 const Header = () => {
     return <header className="App-header">
-        <p>
+        <h1>
             Welcome to Food Recipes Hub !
-        </p>
+        </h1>
     </header>
 }
 
