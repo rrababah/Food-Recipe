@@ -6,6 +6,7 @@ import {loadedRecipesActions} from "../store/recipe-state/loadedRecipes";
 import {enteredRecipeActions} from "../store/recipe-state/enteredRecipe";
 import {useNavigate} from "react-router-dom";
 import {GetSearchResults} from "../services/searchApiService";
+import axios from "axios";
 
 
 const Home = () => {
@@ -22,16 +23,12 @@ const Home = () => {
     const onSubmitHandler = (e) => {
         e.preventDefault();
         dispatch(loadingActions.changeLoadingState());
-     //const xxx=  GetSearchResults();
-     //console.log(xxx);
 
-        fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=7b2e03b0ee4b496eb98cd157dd51f32c&query=${enteredRecipe}&number=30`
-        ).then(response =>
-            response.json()
-        ).then(data => {
-            console.log(data);
+        axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=7b2e03b0ee4b496eb98cd157dd51f32c&query=${enteredRecipe}&number=30`
+        ).then(response => {
+            console.log(response.data);
             console.log('data');
-            dispatch(loadedRecipesActions.changeloadedRecipesData(data)); //back
+            dispatch(loadedRecipesActions.changeloadedRecipesData(response.data)); //back
             dispatch(loadingActions.changeLoadingState());
 
         }).then(() => {

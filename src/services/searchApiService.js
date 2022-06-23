@@ -9,12 +9,11 @@ const GetRecipeInformation = () => {
         recId = pathName.split('id=')[1];
 
     useEffect((e) => {
-        fetch(`https://api.spoonacular.com/recipes/${recId}/information?apiKey=7b2e03b0ee4b496eb98cd157dd51f32c`
-        ).then(response =>
-            response.json()
-        ).then(data => {
+        axios.get(`https://api.spoonacular.com/recipes/${recId}/information?apiKey=7b2e03b0ee4b496eb98cd157dd51f32c`)
+            .then(response => {
             // Redux recipeInformation
-            dispatch(recipeInformationActions.changeRecipeInformation(data))
+                console.log(response.data);
+            dispatch(recipeInformationActions.changeRecipeInformation(response.data))
 
         });
 
@@ -25,8 +24,8 @@ const GetRecipeInformation = () => {
 const GetSearchResults = async () => {
     const
         enteredRecipe = useSelector(state => state.enteredRecipeSlice.enteredRecipe);
-    const response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=7b2e03b0ee4b496eb98cd157dd51f32c&query=${enteredRecipe}&number=30`);
-    return await response.json();
+    const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=7b2e03b0ee4b496eb98cd157dd51f32c&query=${enteredRecipe}&number=30`);
+    return await response.data;
 
     // return(<div></div>);
 }

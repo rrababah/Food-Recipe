@@ -1,6 +1,7 @@
 import {Card} from "../../containers/Card/Card";
 import {Markup} from 'interweave';
 import {useSelector} from "react-redux";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const RecipeInformation = () => {
 
@@ -18,7 +19,7 @@ const RecipeInformation = () => {
 
     return <Card className="flexbox flexbox-col">
         {!isLoading &&  <figure>
-            <img className="responsive-img" id={recipeInformation.id} src={recipeInformation.image}
+            <LazyLoadImage className="responsive-img" id={recipeInformation.id} src={recipeInformation.image}
                  alt={recipeInformation.title}/>
             <figcaption className="spacing-top10">
                 <h3>{recipeInformation.title}</h3>

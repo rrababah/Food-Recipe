@@ -1,11 +1,10 @@
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+// import { Helmet, HelmetProvider } from "react-helmet-async";
+import {BrowserRouter as Router, Routes, Route,Link} from 'react-router-dom';
 import './App.scss';
 import {Home} from "./pages/Home";
 import {SearchResults} from "./components/SearchResults/SearchResults";
 import {RecipeInformationPage} from "./pages/RecipeInformationPage";
 import {Header} from "./components/Header/Header";
-// import MetaTags from 'react-meta-tags';
-// import { Helmet } from "react-helmet";
 
 function App() {
 
@@ -14,6 +13,7 @@ function App() {
             <Header/>
             <Router>
                 <Routes>
+                    {/*<link to="/recipes/searchResults/recipe=:enteredRecipe"></link>*/}
                     <Route path='/' element={<Home/>}/>
                     <Route path='/recipes/searchResults/recipe=:enteredRecipe' element={<SearchResults/>}/>
                     <Route path='/recipes/recipeInformation/id=:id' element={<RecipeInformationPage/>}/>
