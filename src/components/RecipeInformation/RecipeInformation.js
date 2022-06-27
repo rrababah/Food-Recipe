@@ -1,3 +1,4 @@
+import React from 'react';
 import {Card} from "../../containers/Card/Card";
 import {Markup} from 'interweave';
 import {useSelector} from "react-redux";

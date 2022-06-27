@@ -1,9 +1,11 @@
+import React from 'react';
 import {Card} from "../../containers/Card/Card";
 import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {Pagination} from "../Pagination/Pagination";
 import {SearchBar} from "../SearchBar/SearchBar"
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import {PATHS} from "../../constants/AppConstants";
 
 const SearchResults = () => {
 
@@ -21,7 +23,7 @@ const SearchResults = () => {
 
                 return <Card className="flexbox-inline" key={recipe.id}>
                     <figure className="spacing-top50">
-                        <Link to={`/recipes/recipeInformation/id=${recipe.id}`}>
+                        <Link to={PATHS.RECIPE_INFORMATION_PATH + `${recipe.id}`}>
                             {/*<img loading="lazy" className="responsive-img" id={recipe.id} src={recipe.image} alt={recipe.title}/>*/}
                             <LazyLoadImage className="responsive-img" id={recipe.id} src={recipe.image} alt={recipe.title}/>
                         </Link>
@@ -32,7 +34,7 @@ const SearchResults = () => {
                 </Card>
 
             })}
-            {/*<Pagination itemsPerPage={6}/>*/}
+            <Pagination itemsPerPage={6}/>
 
         </section>
     )

@@ -1,10 +1,12 @@
 // import { Helmet, HelmetProvider } from "react-helmet-async";
+import React from 'react';
 import {BrowserRouter as Router, Routes, Route,Link} from 'react-router-dom';
 import './App.scss';
 import {Home} from "./pages/Home";
 import {SearchResults} from "./components/SearchResults/SearchResults";
 import {RecipeInformationPage} from "./pages/RecipeInformationPage";
 import {Header} from "./components/Header/Header";
+import {PATHS} from './constants/AppConstants'
 
 function App() {
 
@@ -15,8 +17,8 @@ function App() {
                 <Routes>
                     {/*<link to="/recipes/searchResults/recipe=:enteredRecipe"></link>*/}
                     <Route path='/' element={<Home/>}/>
-                    <Route path='/recipes/searchResults/recipe=:enteredRecipe' element={<SearchResults/>}/>
-                    <Route path='/recipes/recipeInformation/id=:id' element={<RecipeInformationPage/>}/>
+                    <Route path= {PATHS.SEARCH_RESULTS_PATH + ':enteredRecipe'} element={<SearchResults/>}/>
+                    <Route path={PATHS.RECIPE_INFORMATION_PATH + ':id'} element={<RecipeInformationPage/>}/>
 
                 </Routes>
             </Router>

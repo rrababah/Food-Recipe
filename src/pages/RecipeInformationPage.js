@@ -1,7 +1,7 @@
+import React from 'react';
 // import './scss/SearchResults.scss'
-
 import {RecipeInformation} from "../components/RecipeInformation/RecipeInformation";
-import {GetRecipeInformation} from "../services/searchApiService";
+import {GetRecipeInformation} from "../services/SearchApiService";
 
 const RecipeInformationPage = () =>{
     GetRecipeInformation();

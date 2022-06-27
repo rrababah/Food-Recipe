@@ -1,3 +1,4 @@
+import React from 'react';
 import {SearchResults} from "../components/SearchResults/SearchResults";
 import {useDispatch, useSelector} from 'react-redux';
 import {SearchBar} from "../components/SearchBar/SearchBar";
@@ -5,7 +6,7 @@ import {loadingActions} from "../store/Spinner/Spinner";
 import {loadedRecipesActions} from "../store/recipe-state/loadedRecipes";
 import {enteredRecipeActions} from "../store/recipe-state/enteredRecipe";
 import {useNavigate} from "react-router-dom";
-import {GetSearchResults} from "../services/searchApiService";
+import {GetSearchResults} from "../services/SearchApiService";
 import axios from "axios";
 
 
@@ -21,19 +22,9 @@ const Home = () => {
     }
 
     const onSubmitHandler = (e) => {
-        e.preventDefault();
-        dispatch(loadingActions.changeLoadingState());
-
-        axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=7b2e03b0ee4b496eb98cd157dd51f32c&query=${enteredRecipe}&number=30`
-        ).then(response => {
-            console.log(response.data);
-            console.log('data');
-            dispatch(loadedRecipesActions.changeloadedRecipesData(response.data)); //back
-            dispatch(loadingActions.changeLoadingState());
-
-        }).then(() => {
-            history(`/recipes/searchResults/recipe=${enteredRecipe}`, {replace: false});
-        });
+         e.preventDefault();
+         dispatch(loadingActions.changeLoadingState());
+        GetSearchResults(dispatch,history,enteredRecipe );
     }
 
     if (isLoading) {
@@ -46,7 +37,7 @@ const Home = () => {
 
     return (
         <section className="container">
-            <SearchBar onSubmit={onSubmitHandler} onChange={onChangeHandler}/>
+            <SearchBar onSubmit= {onSubmitHandler} onChange={onChangeHandler}/>
         </section>
     )
 }
