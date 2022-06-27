@@ -49,8 +49,11 @@ function Pagination({ itemsPerPage }) {
 
     useEffect(() => {
         // Fetch items from another resources.
+
+
        // console.log('herererreer');
-      //  GetSearchResults(dispatch,history,enteredRecipe );
+     // let xx=  GetSearchResults(dispatch,history,enteredRecipe );
+      //console.log(xx);
 
 //itemOffset is offeset
 // itemsPerPage is number

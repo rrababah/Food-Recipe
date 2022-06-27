@@ -3,11 +3,14 @@ import {Card} from "../../containers/Card/Card";
 import {Markup} from 'interweave';
 import {useSelector} from "react-redux";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import {Link} from "react-router-dom";
+import {PATHS} from "../../constants/AppConstants";
 
 const RecipeInformation = () => {
 
     const recipeInformation = useSelector(state => state.recipeInformationSlice.recipeInformation),
          isLoading = useSelector(state => state.spinner.isLoading),
+        enteredRecipe = useSelector(state => state.enteredRecipeSlice.enteredRecipe),
         recipeSummary = recipeInformation.summary;
 
     if (isLoading) {
@@ -19,6 +22,9 @@ const RecipeInformation = () => {
     }
 
     return <Card className="flexbox flexbox-col">
+            <Link to={PATHS.SEARCH_RESULTS_PATH + enteredRecipe}>  Back to all "{enteredRecipe}" recipes </Link>
+            <Link to='/ooopppss'>  ooopppss </Link>
+
         {!isLoading &&  <figure>
             <LazyLoadImage className="responsive-img" id={recipeInformation.id} src={recipeInformation.image}
                  alt={recipeInformation.title}/>

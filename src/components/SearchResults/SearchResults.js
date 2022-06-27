@@ -34,7 +34,7 @@ const SearchResults = () => {
                 </Card>
 
             })}
-            <Pagination itemsPerPage={6}/>
+            {/*<Pagination itemsPerPage={6}/>*/}
 
         </section>
     )
