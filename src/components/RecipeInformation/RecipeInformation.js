@@ -23,7 +23,7 @@ const RecipeInformation = () => {
 
     return <Card className="flexbox flexbox-col">
             <Link to={PATHS.SEARCH_RESULTS_PATH + enteredRecipe}>  Back to all "{enteredRecipe}" recipes </Link>
-            <Link to='/ooopppss'>  ooopppss </Link>
+
 
         {!isLoading &&  <figure>
             <LazyLoadImage className="responsive-img" id={recipeInformation.id} src={recipeInformation.image}

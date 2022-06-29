@@ -1,11 +1,12 @@
 import React from 'react';
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {recipeInformationActions} from "../store/recipe-state/recipeInformation";
 import axios from 'axios';
 import {loadedRecipesActions} from "../store/recipe-state/loadedRecipes";
 import {loadingActions} from "../store/Spinner/Spinner";
 import {PATHS, URL} from '../constants/AppConstants'
+import {useNavigate} from "react-router-dom";
 
 const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
@@ -47,12 +48,3 @@ const GetSearchResults =  (dispatch, history, enteredRecipe) => {
 
 
 export { GetRecipeInformation, GetSearchResults }
-
-// const GetSearchResults = async () => {
-//     const
-//         enteredRecipe = useSelector(state => state.enteredRecipeSlice.enteredRecipe);
-//     const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=7b2e03b0ee4b496eb98cd157dd51f32c&query=${enteredRecipe}&number=30`);
-//     return await response.data;
-//
-//     // return(<div></div>);
-// }

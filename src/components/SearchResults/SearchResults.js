@@ -6,12 +6,15 @@ import {Pagination} from "../Pagination/Pagination";
 import {SearchBar} from "../SearchBar/SearchBar"
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import {PATHS} from "../../constants/AppConstants";
+import {useParams} from "react-router-dom";
 
 const SearchResults = () => {
+    let { enteredRecipe } = useParams();
+     console.log(enteredRecipe);
 
     const isLoading = useSelector(state => state.spinner.isLoading),
-        loadedRecipes = useSelector(state => state.loadedRecipesSlice.loadedRecipes),
-        enteredRecipe = useSelector(state => state.enteredRecipeSlice.enteredRecipe);
+        loadedRecipes = useSelector(state => state.loadedRecipesSlice.loadedRecipes);
+        // enteredRecipe = useSelector(state => state.enteredRecipeSlice.enteredRecipe);
 
     return (
         <section className="container" id="container">
